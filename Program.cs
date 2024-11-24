@@ -4,7 +4,8 @@ var orders = new List<Order>();
 int productCounter = 1;
 int customerCounter = 1;
 int orderCounter = 1;
-while (true) {
+while (true)
+{
     Console.WriteLine("Please select an option:");
     Console.WriteLine("1. Add Product");
     Console.WriteLine("2. Add Customer");
@@ -13,7 +14,8 @@ while (true) {
     Console.WriteLine("5. View Customers");
     Console.WriteLine("6. View Orders");
     int option = int.Parse(Console.ReadLine());
-    switch (option) {
+    switch (option)
+    {
         case 1:
             Console.WriteLine("Enter product name:");
             string productName = Console.ReadLine();
@@ -34,37 +36,45 @@ while (true) {
             int customerId = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter quantity:");
             int quantity = int.Parse(Console.ReadLine());
-            while (true) {
-                foreach (var product in products) {
+            while (true)
+            {
+                foreach (var product in products)
+                {
                     Console.WriteLine($"{product.ProductId}. {product.ProductName}");
                 }
                 Console.WriteLine("Enter product ID or press Enter to finish:");
                 string enteredProductId = Console.ReadLine();
-                if (string.IsNullOrEmpty(enteredProductId)) {
+                if (string.IsNullOrEmpty(enteredProductId))
+                {
                     break;
                 }
                 int productId = int.Parse(enteredProductId);
                 var selectedProduct = products.FirstOrDefault(p => p.ProductId == productId);
-                if (selectedProduct != null) {
+                if (selectedProduct != null)
+                {
                     orderProducts.Add(selectedProduct);
                 }
             }
             orders.Add(new Order { OrderId = orderCounter++, CustomerId = customerId, Products = orderProducts, Quantity = quantity });
             break;
         case 4:
-            foreach (Product product in products) {
+            foreach (Product product in products)
+            {
                 Console.WriteLine($"Product: {product.ProductName}, Price: {product.Price}");
             }
             break;
         case 5:
-            foreach (Customer customer in customers) {
+            foreach (Customer customer in customers)
+            {
                 Console.WriteLine($"Customer: {customer.Name}");
             }
             break;
         case 6:
-            foreach (Order order in orders) {
+            foreach (Order order in orders)
+            {
                 Console.WriteLine($"Order: {order.OrderId}, Quantity: {order.Quantity}");
-                foreach (Product product in order.Products) {
+                foreach (Product product in order.Products)
+                {
                     Console.WriteLine($"- Product: {product.ProductName}, Price: {product.Price}");
                 }
             }
