@@ -81,6 +81,6 @@ while (true)
             break;
         default:
             Console.WriteLine("Invalid option");
-            break;
+            return;
     }
 }
