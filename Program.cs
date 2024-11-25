@@ -86,7 +86,7 @@
                     foreach (Product product in products)
                     {
                         Console.WriteLine(
-                            $"Product: {product.ProductName}, Price: {product.Price:F2}"
+                            $"Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}"
                         );
                     }
                     break;
@@ -100,12 +100,16 @@
                     foreach (Order order in orders)
                     {
                         Console.WriteLine($"Order: {order.OrderId}, Quantity: {order.Quantity:N0}");
+                        decimal totalPrice = 0;
                         foreach (Product product in order.Products)
                         {
+                            productPrice = productPrice * product.Quantity;
                             Console.WriteLine(
-                                $"- Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}"
+                                $"- Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}, Product Price: {productPrice:F2}"
                             );
+                            totalPrice += productPrice;
                         }
+                        Console.WriteLine($"Total Price: {totalPrice:F2}");
                     }
                     break;
                 default:
