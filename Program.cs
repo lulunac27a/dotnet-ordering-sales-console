@@ -103,7 +103,7 @@
                         foreach (Product product in order.Products)
                         {
                             Console.WriteLine(
-                                $"- Product: {product.ProductName}, Price: {product.Price:F2}"
+                                $"- Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}"
                             );
                         }
                     }
