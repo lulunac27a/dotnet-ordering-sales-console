@@ -84,13 +84,14 @@
                     break;
                 case 4:
                     decimal totalPrice = 0;
+                    decimal totalProductPrice = 0;
                     foreach (Product product in products)
                     {
-                        decimal productPrice = product.Price * product.Quantity;
+                        totalProductPrice = product.Price * product.Quantity;
                         Console.WriteLine(
                             $"Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}"
                         );
-                        totalPrice += productPrice;
+                        totalPrice += totalProductPrice;
                     }
                     Console.WriteLine("Total Price: {totalPrice:F2}");
                     break;
@@ -104,16 +105,17 @@
                     foreach (Order order in orders)
                     {
                         Console.WriteLine($"Order: {order.OrderId}, Quantity: {order.Quantity:N0}");
-                        decimal totalPrice = 0;
+                        decimal totalOrderPrice = 0;
+                        decimal orderProductPrice = 0;
                         foreach (Product product in order.Products)
                         {
-                            decimal productPrice = productPrice * product.Quantity;
+                            orderProductPrice = product.Price * product.Quantity;
                             Console.WriteLine(
-                                $"- Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}, Product Price: {productPrice:F2}"
+                                $"- Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}, Product Price: {orderProductPrice:F2}"
                             );
-                            totalPrice += productPrice;
+                            totalOrderPrice += orderProductPrice;
                         }
-                        Console.WriteLine($"Total Price: {totalPrice:F2}");
+                        Console.WriteLine($"Total Price: {totalOrderPrice:F2}");
                     }
                     break;
                 default:
