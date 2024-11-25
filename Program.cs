@@ -86,7 +86,7 @@
                     decimal totalPrice = 0;
                     foreach (Product product in products)
                     {
-                        productPrice = product.Price * product.Quantity;
+                        decimal productPrice = product.Price * product.Quantity;
                         Console.WriteLine(
                             $"Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}"
                         );
@@ -107,7 +107,7 @@
                         decimal totalPrice = 0;
                         foreach (Product product in order.Products)
                         {
-                            productPrice = productPrice * product.Quantity;
+                            decimal productPrice = productPrice * product.Quantity;
                             Console.WriteLine(
                                 $"- Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}, Product Price: {productPrice:F2}"
                             );
