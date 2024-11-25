@@ -25,6 +25,7 @@
                     string productName = Console.ReadLine();
                     Console.WriteLine("Enter product price:");
                     decimal productPrice = decimal.Parse(Console.ReadLine());
+                    productPrice = decimal.Round(productPrice, 2);
                     Console.WriteLine("Enter product quantity:");
                     int productQuantity = int.Parse(Console.ReadLine());
                     products.Add(
