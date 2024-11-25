@@ -23,7 +23,15 @@ while (true)
             decimal productPrice = decimal.Parse(Console.ReadLine());
             Console.WriteLine("Enter product quantity:");
             int productQuantity = int.Parse(Console.ReadLine());
-            products.Add(new Product { ProductId = productCounter++, ProductName = productName, Price = productPrice, Quantity = productQuantity });
+            products.Add(
+                new Product
+                {
+                    ProductId = productCounter++,
+                    ProductName = productName,
+                    Price = productPrice,
+                    Quantity = productQuantity,
+                }
+            );
             break;
         case 2:
             Console.WriteLine("Enter customer name:");
@@ -55,7 +63,15 @@ while (true)
                     orderProducts.Add(selectedProduct);
                 }
             }
-            orders.Add(new Order { OrderId = orderCounter++, CustomerId = customerId, Products = orderProducts, Quantity = quantity });
+            orders.Add(
+                new Order
+                {
+                    OrderId = orderCounter++,
+                    CustomerId = customerId,
+                    Products = orderProducts,
+                    Quantity = quantity,
+                }
+            );
             break;
         case 4:
             foreach (Product product in products)
