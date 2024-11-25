@@ -86,7 +86,7 @@
                     foreach (Product product in products)
                     {
                         Console.WriteLine(
-                            $"Product: {product.ProductName}, Price: {product.Price}"
+                            $"Product: {product.ProductName}, Price: {product.Price:F2}"
                         );
                     }
                     break;
@@ -99,11 +99,11 @@
                 case 6:
                     foreach (Order order in orders)
                     {
-                        Console.WriteLine($"Order: {order.OrderId}, Quantity: {order.Quantity}");
+                        Console.WriteLine($"Order: {order.OrderId}, Quantity: {order.Quantity:N0}");
                         foreach (Product product in order.Products)
                         {
                             Console.WriteLine(
-                                $"- Product: {product.ProductName}, Price: {product.Price}"
+                                $"- Product: {product.ProductName}, Price: {product.Price:F2}"
                             );
                         }
                     }
