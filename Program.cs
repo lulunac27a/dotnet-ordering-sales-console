@@ -83,12 +83,16 @@
                     );
                     break;
                 case 4:
+                    decimal totalPrice = 0;
                     foreach (Product product in products)
                     {
+                        productPrice = product.Price * product.Quantity;
                         Console.WriteLine(
                             $"Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}"
                         );
+                        totalPrice += productPrice;
                     }
+                    Console.WriteLine("Total Price: {totalPrice:F2}");
                     break;
                 case 5:
                     foreach (Customer customer in customers)
