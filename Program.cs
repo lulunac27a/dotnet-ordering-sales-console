@@ -98,7 +98,20 @@
                 case 5:
                     foreach (Customer customer in customers)
                     {
-                        Console.WriteLine($"Customer: {customer.Name}");
+                        decimal totalCustomerPrice = 0;
+                        foreach (Order order in orders)
+                        {
+                            if (order.CustomerId == customer.CustomerId)
+                            {
+                                foreach (Product product in order.Products)
+                                {
+                                    totalCustomerPrice += product.Price * product.Quantity;
+                                }
+                            }
+                        }
+                        Console.WriteLine(
+                            $"Customer: {customer.Name}, Total Price: {totalCustomerPrice:F2}"
+                        );
                     }
                     break;
                 case 6:
