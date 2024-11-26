@@ -122,7 +122,7 @@
                         decimal orderProductPrice = 0;
                         foreach (Product product in order.Products)
                         {
-                            orderProductPrice = product.Price * product.Quantity;
+                            orderProductPrice = product.Price * product.Quantity * order.Quantity;
                             Console.WriteLine(
                                 $"- Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}, Product Price: {orderProductPrice:F2}"
                             );
