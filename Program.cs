@@ -93,7 +93,7 @@
                         );
                         totalPrice += totalProductPrice;
                     }
-                    Console.WriteLine("Total Price: {totalPrice:F2}");
+                    Console.WriteLine($"Total Price: {totalPrice:F2}");
                     break;
                 case 5:
                     foreach (Customer customer in customers)
