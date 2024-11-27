@@ -93,11 +93,11 @@
                     {
                         totalProductPrice = product.Price * product.Quantity;
                         Console.WriteLine(
-                            $"Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}"
+                            $"Product: {product.ProductName}, Price: {product.Price:N2}, Quantity: {product.Quantity:N0}"
                         );
                         totalPrice += totalProductPrice;
                     }
-                    Console.WriteLine($"Total Price: {totalPrice:F2}");
+                    Console.WriteLine($"Total Price: {totalPrice:N2}");
                     break;
                 case 5:
                     foreach (Customer customer in customers)
@@ -114,7 +114,7 @@
                             }
                         }
                         Console.WriteLine(
-                            $"Customer: {customer.Name}, Total Price: {totalCustomerPrice:F2}"
+                            $"Customer: {customer.Name}, Total Price: {totalCustomerPrice:N2}"
                         );
                     }
                     break;
@@ -129,14 +129,14 @@
                         {
                             orderProductPrice = product.Price * product.Quantity * order.Quantity;
                             Console.WriteLine(
-                                $"- Product: {product.ProductName}, Price: {product.Price:F2}, Quantity: {product.Quantity:N0}, Product Price: {orderProductPrice:F2}"
+                                $"- Product: {product.ProductName}, Price: {product.Price:N2}, Quantity: {product.Quantity:N0}, Product Price: {orderProductPrice:N2}"
                             );
                             totalOrderPrice += orderProductPrice;
                         }
-                        Console.WriteLine($"Total Price: {totalOrderPrice:F2}");
+                        Console.WriteLine($"Total Price: {totalOrderPrice:N2}");
                         totalAllOrdersPrice += totalOrderPrice;
                     }
-                    Console.WriteLine($"Total Price of All Orders: {totalAllOrdersPrice:F2}");
+                    Console.WriteLine($"Total Price of All Orders: {totalAllOrdersPrice:N2}");
                     break;
                 default:
                     Console.WriteLine("Invalid option");
