@@ -115,6 +115,7 @@
                     }
                     break;
                 case 6:
+                    decimal totalAllOrdersPrice = 0;
                     foreach (Order order in orders)
                     {
                         Console.WriteLine($"Order: {order.OrderId}, Quantity: {order.Quantity:N0}");
@@ -129,7 +130,9 @@
                             totalOrderPrice += orderProductPrice;
                         }
                         Console.WriteLine($"Total Price: {totalOrderPrice:F2}");
+                        totalAllOrdersPrice += totalOrderPrice;
                     }
+                    Console.WriteLine($"Total Price of All Orders: {totalAllOrdersPrice:F2}");
                     break;
                 default:
                     Console.WriteLine("Invalid option");
