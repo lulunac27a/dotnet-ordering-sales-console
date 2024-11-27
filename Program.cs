@@ -2,9 +2,9 @@
 {
     private static void Main(string[] args)
     {
-        var products = new List<Product>();
-        var customers = new List<Customer>();
-        var orders = new List<Order>();
+        List<Product> products = new List<Product>();
+        List<Customer> customers = new List<Customer>();
+        List<Order> orders = new List<Order>();
         int productCounter = 1;
         int customerCounter = 1;
         int orderCounter = 1;
