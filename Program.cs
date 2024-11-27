@@ -47,6 +47,10 @@
                     break;
                 case 3:
                     List<Product> orderProducts = new List<Product>();
+                    foreach (Customer customer in customers)
+                    {
+                        Console.WriteLine($"{customer.CustomerId}. {customer.Name}");
+                    }
                     Console.WriteLine("Enter customer ID:");
                     int customerId = int.Parse(Console.ReadLine());
                     Console.WriteLine("Enter quantity:");
