@@ -2,12 +2,12 @@
 {
     private static void Main(string[] args)
     {
-        List<Product> products = new List<Product>();
-        List<Customer> customers = new List<Customer>();
-        List<Order> orders = new List<Order>();
-        int productCounter = 1;
-        int customerCounter = 1;
-        int orderCounter = 1;
+        List<Product> products = new List<Product>(); //list of products
+        List<Customer> customers = new List<Customer>(); //list of customers
+        List<Order> orders = new List<Order>(); //list of orders
+        int productCounter = 1; //product ID counter
+        int customerCounter = 1; //customer ID counter
+        int orderCounter = 1; //order ID counter
         while (true)
         {
             Console.WriteLine("Please select an option:");
@@ -17,15 +17,15 @@
             Console.WriteLine("4. View Products");
             Console.WriteLine("5. View Customers");
             Console.WriteLine("6. View Orders");
-            int option = int.Parse(Console.ReadLine());
+            int option = int.Parse(Console.ReadLine()); //input option value
             switch (option)
             {
-                case 1:
+                case 1: //add product
                     Console.WriteLine("Enter product name:");
                     string? productName = Console.ReadLine();
                     Console.WriteLine("Enter product price:");
                     decimal productPrice = decimal.Parse(Console.ReadLine());
-                    productPrice = decimal.Round(productPrice, 2);
+                    productPrice = decimal.Round(productPrice, 2); //round product price to 2 decimal places
                     Console.WriteLine("Enter product quantity:");
                     int productQuantity = int.Parse(Console.ReadLine());
                     products.Add(
@@ -36,9 +36,9 @@
                             Price = productPrice,
                             Quantity = productQuantity,
                         }
-                    );
+                    ); //add new product with entered values
                     break;
-                case 2:
+                case 2: //add customer
                     Console.WriteLine("Enter customer name:");
                     string? customerName = Console.ReadLine();
                     customers.Add(
@@ -48,12 +48,12 @@
                             Name = customerName,
                             Orders = new List<Order>(),
                         }
-                    );
+                    ); //add new customer with entered values
                     break;
-                case 3:
-                    List<Product> orderProducts = new List<Product>();
+                case 3: //add order
+                    List<Product> orderProducts = new List<Product>(); //initialize order products list
                     foreach (Customer customer in customers)
-                    {
+                    { //repeat for each customer in customer list
                         Console.WriteLine($"{customer.CustomerId}. {customer.Name}");
                     }
                     Console.WriteLine("Enter customer ID:");
@@ -61,24 +61,24 @@
                     Console.WriteLine("Enter quantity:");
                     int quantity = int.Parse(Console.ReadLine());
                     while (true)
-                    {
+                    { //repeat until product ID input is empty or blank
                         foreach (var product in products)
-                        {
+                        { //repeat for each product in product list
                             Console.WriteLine($"{product.ProductId}. {product.ProductName}");
                         }
                         Console.WriteLine("Enter product ID or press Enter to finish:");
                         string enteredProductId = Console.ReadLine();
                         if (string.IsNullOrEmpty(enteredProductId))
-                        {
-                            break;
+                        { //if product ID input is empty or blank
+                            break; //end the input process
                         }
                         int productId = int.Parse(enteredProductId);
                         var selectedProduct = products.FirstOrDefault(p =>
                             p.ProductId == productId
-                        );
+                        ); //match product ID with product ID in product list
                         if (selectedProduct != null)
-                        {
-                            orderProducts.Add(selectedProduct);
+                        { //if product ID is found in product list
+                            orderProducts.Add(selectedProduct); //add new order product with selected product ID in product list
                         }
                     }
                     orders.Add(
@@ -89,32 +89,32 @@
                             Products = orderProducts,
                             Quantity = quantity,
                         }
-                    );
+                    ); //add new order with entered values
                     break;
-                case 4:
-                    decimal totalProductPrice = 0;
-                    decimal individualProductPrice = 0;
+                case 4: //view products
+                    decimal totalProductPrice = 0; //total price of all products
+                    decimal individualProductPrice = 0; //price of individual product
                     foreach (Product product in products)
-                    {
+                    { //repeat for each product in product list
                         individualProductPrice = product.Price * product.Quantity;
                         Console.WriteLine(
                             $"Product: {product.ProductName}, Price: {product.Price:N2}, Quantity: {product.Quantity:N0}"
                         );
-                        totalProductPrice += individualProductPrice;
+                        totalProductPrice += individualProductPrice; //add price of individual product to total product price
                     }
                     Console.WriteLine($"Total Price of All Products: {totalProductPrice:N2}");
                     break;
-                case 5:
+                case 5: //view customers
                     foreach (Customer customer in customers)
                     {
-                        decimal totalCustomerPrice = 0;
+                        decimal totalCustomerPrice = 0; //total price of all customers
                         foreach (Order order in orders)
-                        {
+                        { //repeat for each order in order list
                             if (order.CustomerId == customer.CustomerId)
-                            {
+                            { //if order customer ID matches customer ID in customer list
                                 foreach (Product product in order.Products)
-                                {
-                                    totalCustomerPrice += product.Price * product.Quantity;
+                                { //repeat for each product in order list with order customer ID matches customer ID in customer list
+                                    totalCustomerPrice += product.Price * product.Quantity; //add customer price to total price of all customers
                                 }
                             }
                         }
@@ -123,27 +123,27 @@
                         );
                     }
                     break;
-                case 6:
-                    decimal totalAllOrdersPrice = 0;
+                case 6: //view orders
+                    decimal totalAllOrdersPrice = 0; //total price of all orders
                     foreach (Order order in orders)
-                    {
+                    { //repeat for each order in order list
                         Console.WriteLine($"Order: {order.OrderId}, Quantity: {order.Quantity:N0}");
-                        decimal totalOrderPrice = 0;
-                        decimal orderProductPrice = 0;
+                        decimal totalOrderPrice = 0; //total price of order
+                        decimal orderProductPrice = 0; //price of order product
                         foreach (Product product in order.Products)
-                        {
+                        { //repeat for each product in order product list
                             orderProductPrice = product.Price * product.Quantity * order.Quantity;
                             Console.WriteLine(
                                 $"- Product: {product.ProductName}, Price: {product.Price:N2}, Quantity: {product.Quantity:N0}, Product Price: {orderProductPrice:N2}"
                             );
-                            totalOrderPrice += orderProductPrice;
+                            totalOrderPrice += orderProductPrice; //add order product price to total order price
                         }
                         Console.WriteLine($"Total Price: {totalOrderPrice:N2}");
-                        totalAllOrdersPrice += totalOrderPrice;
+                        totalAllOrdersPrice += totalOrderPrice; //add total order price to total price of all orders
                     }
                     Console.WriteLine($"Total Price of All Orders: {totalAllOrdersPrice:N2}");
                     break;
-                default:
+                default: //invalid option
                     Console.WriteLine("Invalid option");
                     return;
             }
