@@ -87,17 +87,17 @@
                     );
                     break;
                 case 4:
-                    decimal totalPrice = 0;
                     decimal totalProductPrice = 0;
+                    decimal individualProductPrice = 0;
                     foreach (Product product in products)
                     {
-                        totalProductPrice = product.Price * product.Quantity;
+                        individualProductPrice = product.Price * product.Quantity;
                         Console.WriteLine(
                             $"Product: {product.ProductName}, Price: {product.Price:N2}, Quantity: {product.Quantity:N0}"
                         );
-                        totalPrice += totalProductPrice;
+                        totalProductPrice += individualProductPrice;
                     }
-                    Console.WriteLine($"Total Price: {totalPrice:N2}");
+                    Console.WriteLine($"Total Price of All Products: {totalProductPrice:N2}");
                     break;
                 case 5:
                     foreach (Customer customer in customers)
