@@ -22,7 +22,7 @@
             {
                 case 1:
                     Console.WriteLine("Enter product name:");
-                    string productName = Console.ReadLine();
+                    string? productName = Console.ReadLine();
                     Console.WriteLine("Enter product price:");
                     decimal productPrice = decimal.Parse(Console.ReadLine());
                     productPrice = decimal.Round(productPrice, 2);
@@ -40,7 +40,7 @@
                     break;
                 case 2:
                     Console.WriteLine("Enter customer name:");
-                    string customerName = Console.ReadLine();
+                    string? customerName = Console.ReadLine();
                     customers.Add(
                         new Customer
                         {
