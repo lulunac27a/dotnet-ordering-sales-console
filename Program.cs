@@ -42,7 +42,12 @@
                     Console.WriteLine("Enter customer name:");
                     string customerName = Console.ReadLine();
                     customers.Add(
-                        new Customer { CustomerId = customerCounter++, Name = customerName }
+                        new Customer
+                        {
+                            CustomerId = customerCounter++,
+                            Name = customerName,
+                            Orders = new List<Order>(),
+                        }
                     );
                     break;
                 case 3:

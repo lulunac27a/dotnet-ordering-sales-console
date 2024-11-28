@@ -1,6 +1,6 @@
 public class Customer
 {
-    public int CustomerId { get; set; }
-    public string Name { get; set; }
-    public List<Order> Orders { get; set; }
+    public required int CustomerId {get; set;}
+    public required string Name {get; set;}
+    public required List<Order> Orders {get; set;}
 }

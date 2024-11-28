@@ -1,7 +1,6 @@
-public class Product
-{
-    public int ProductId { get; set; }
-    public string ProductName { get; set; }
-    public int Quantity { get; set; }
-    public decimal Price { get; set; }
+public class Product {
+    public required int ProductId {get; set;}
+    public required string ProductName {get; set;}
+    public required int Quantity {get; set;}
+    public required decimal Price {get; set;}
 }
