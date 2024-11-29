@@ -28,21 +28,19 @@
                     Console.WriteLine("Enter product name:");
                     string? productName = Console.ReadLine();
                     if (productName != null)
-                    {
+                    { //if product name is not null
                         Console.WriteLine("Enter product price:");
                         if (!decimal.TryParse(Console.ReadLine(), out decimal productPrice))
-                        {
-                            Console.WriteLine("Invalid input. Please enter a valid product price.");
-                            continue;
+                        { //if product price is not a valid number
+                            Console.WriteLine("Invalid input. Please enter a valid product price."); //alert user for invalid input
+                            continue; //continue program without adding product
                         }
                         productPrice = decimal.Round(productPrice, 2); //round product price to 2 decimal places
                         Console.WriteLine("Enter product quantity:");
                         if (!int.TryParse(Console.ReadLine(), out int productQuantity))
-                        {
-                            Console.WriteLine(
-                                "Invalid input. Please enter a valid product quantity."
-                            );
-                            continue;
+                        { //if product quantity is not a valid integer
+                            Console.WriteLine("Invalid input. Please enter a valid product quantity.");
+                            continue; //continue program without adding product
                         }
                         products.Add(
                             new Product
@@ -59,7 +57,7 @@
                     Console.WriteLine("Enter customer name:");
                     string? customerName = Console.ReadLine();
                     if (customerName != null)
-                    {
+                    { //if customer name is not null
                         customers.Add(
                             new Customer
                             {
@@ -80,13 +78,13 @@
                     if (!int.TryParse(Console.ReadLine(), out int customerId))
                     {
                         Console.WriteLine("Invalid input. Please enter a valid customer ID.");
-                        continue;
+                        continue; //continue program without adding order
                     }
                     Console.WriteLine("Enter quantity:");
                     if (!int.TryParse(Console.ReadLine(), out int quantity))
                     {
                         Console.WriteLine("Invalid input. Please enter a valid quantity.");
-                        continue;
+                        continue; //continue program without adding order
                     }
                     while (true)
                     { //repeat until product ID input is empty or blank
