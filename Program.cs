@@ -83,7 +83,7 @@
                             Console.WriteLine($"{product.ProductId}. {product.ProductName}");
                         }
                         Console.WriteLine("Enter product ID or press Enter to finish:");
-                        string enteredProductId = Console.ReadLine();
+                        string? enteredProductId = Console.ReadLine();
                         if (string.IsNullOrEmpty(enteredProductId))
                         { //if product ID input is empty or blank
                             break; //end the input process
