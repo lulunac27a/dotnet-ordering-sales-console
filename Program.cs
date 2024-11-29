@@ -27,40 +27,48 @@
                 case 1: //add product
                     Console.WriteLine("Enter product name:");
                     string? productName = Console.ReadLine();
-                    Console.WriteLine("Enter product price:");
-                    if (!decimal.TryParse(Console.ReadLine(), out decimal productPrice))
+                    if (productName != null)
                     {
-                        Console.WriteLine("Invalid input. Please enter a valid product price.");
-                        continue;
-                    }
-                    productPrice = decimal.Round(productPrice, 2); //round product price to 2 decimal places
-                    Console.WriteLine("Enter product quantity:");
-                    if (!int.TryParse(Console.ReadLine(), out int productQuantity))
-                    {
-                        Console.WriteLine("Invalid input. Please enter a valid product quantity.");
-                        continue;
-                    }
-                    products.Add(
-                        new Product
+                        Console.WriteLine("Enter product price:");
+                        if (!decimal.TryParse(Console.ReadLine(), out decimal productPrice))
                         {
-                            ProductId = productCounter++,
-                            ProductName = productName,
-                            Price = productPrice,
-                            Quantity = productQuantity,
+                            Console.WriteLine("Invalid input. Please enter a valid product price.");
+                            continue;
                         }
-                    ); //add new product with entered values
+                        productPrice = decimal.Round(productPrice, 2); //round product price to 2 decimal places
+                        Console.WriteLine("Enter product quantity:");
+                        if (!int.TryParse(Console.ReadLine(), out int productQuantity))
+                        {
+                            Console.WriteLine(
+                                "Invalid input. Please enter a valid product quantity."
+                            );
+                            continue;
+                        }
+                        products.Add(
+                            new Product
+                            {
+                                ProductId = productCounter++,
+                                ProductName = productName,
+                                Price = productPrice,
+                                Quantity = productQuantity,
+                            }
+                        ); //add new product with entered values
+                    }
                     break;
                 case 2: //add customer
                     Console.WriteLine("Enter customer name:");
                     string? customerName = Console.ReadLine();
-                    customers.Add(
-                        new Customer
-                        {
-                            CustomerId = customerCounter++,
-                            Name = customerName,
-                            Orders = new List<Order>(),
-                        }
-                    ); //add new customer with entered values
+                    if (customerName != null)
+                    {
+                        customers.Add(
+                            new Customer
+                            {
+                                CustomerId = customerCounter++,
+                                Name = customerName,
+                                Orders = new List<Order>(),
+                            }
+                        ); //add new customer with entered values
+                    }
                     break;
                 case 3: //add order
                     List<Product> orderProducts = new List<Product>(); //initialize order products list
