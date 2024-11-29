@@ -20,7 +20,7 @@
             if (!int.TryParse(Console.ReadLine(), out int option))
             { //if option is not a valid integer
                 Console.WriteLine("Invalid input. Please enter a valid number.");
-                continue;
+                continue; //continue program
             }
             switch (option)
             {
@@ -101,7 +101,7 @@
                         if (!int.TryParse(enteredProductId, out int productId))
                         { //if product ID is not a valid integer
                             Console.WriteLine("Invalid input. Please enter a valid product ID.");
-                            continue;
+                            continue; //continue program without adding order
                         }
                         var selectedProduct = products.FirstOrDefault(p =>
                             p.ProductId == productId
@@ -175,7 +175,7 @@
                     break;
                 default: //invalid option
                     Console.WriteLine("Invalid option.");
-                    return;
+                    return; //end program
             }
         }
     }
