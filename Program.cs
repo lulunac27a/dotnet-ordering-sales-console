@@ -27,7 +27,7 @@
                 case 1: //add product
                     Console.WriteLine("Enter product name:");
                     string? productName = Console.ReadLine();
-                    if (productName != null)
+                    if (productName != null || !string.IsNullOrEmpty(productName))
                     { //if product name is not null
                         Console.WriteLine("Enter product price:");
                         if (!decimal.TryParse(Console.ReadLine(), out decimal productPrice))
@@ -56,7 +56,7 @@
                 case 2: //add customer
                     Console.WriteLine("Enter customer name:");
                     string? customerName = Console.ReadLine();
-                    if (customerName != null)
+                    if (customerName != null || !string.IsNullOrEmpty(customerName))
                     { //if customer name is not null
                         customers.Add(
                             new Customer
