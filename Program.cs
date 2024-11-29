@@ -30,13 +30,15 @@
                     Console.WriteLine("Enter product price:");
                     if (!decimal.TryParse(Console.ReadLine(), out decimal productPrice))
                     {
-                        Console.WriteLine("Invalid input. Please enter a valid product price");
+                        Console.WriteLine("Invalid input. Please enter a valid product price.");
+                        continue;
                     }
                     productPrice = decimal.Round(productPrice, 2); //round product price to 2 decimal places
                     Console.WriteLine("Enter product quantity:");
                     if (!int.TryParse(Console.ReadLine(), out int productQuantity))
                     {
                         Console.WriteLine("Invalid input. Please enter a valid product quantity.");
+                        continue;
                     }
                     products.Add(
                         new Product
@@ -70,11 +72,13 @@
                     if (!int.TryParse(Console.ReadLine(), out int customerId))
                     {
                         Console.WriteLine("Invalid input. Please enter a valid customer ID.");
+                        continue;
                     }
                     Console.WriteLine("Enter quantity:");
                     if (!int.TryParse(Console.ReadLine(), out int quantity))
                     {
                         Console.WriteLine("Invalid input. Please enter a valid quantity.");
+                        continue;
                     }
                     while (true)
                     { //repeat until product ID input is empty or blank
@@ -91,6 +95,7 @@
                         if (!int.TryParse(enteredProductId, out int productId))
                         {
                             Console.WriteLine("Invalid input. Please enter a valid product ID.");
+                            continue;
                         }
                         var selectedProduct = products.FirstOrDefault(p =>
                             p.ProductId == productId
@@ -163,7 +168,7 @@
                     Console.WriteLine($"Total Price of All Orders: {totalAllOrdersPrice:N2}");
                     break;
                 default: //invalid option
-                    Console.WriteLine("Invalid option");
+                    Console.WriteLine("Invalid option.");
                     return;
             }
         }
