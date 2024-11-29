@@ -17,17 +17,27 @@
             Console.WriteLine("4. View Products");
             Console.WriteLine("5. View Customers");
             Console.WriteLine("6. View Orders");
-            int option = int.Parse(Console.ReadLine()); //input option value
+            if (!int.TryParse(Console.ReadLine(), out int option))
+            { //input option value
+                Console.WriteLine("Invalid input. Please enter a valid number.");
+                continue;
+            }
             switch (option)
             {
                 case 1: //add product
                     Console.WriteLine("Enter product name:");
                     string? productName = Console.ReadLine();
                     Console.WriteLine("Enter product price:");
-                    decimal productPrice = decimal.Parse(Console.ReadLine());
+                    if (!decimal.TryParse(Console.ReadLine(), out decimal productPrice))
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid product price");
+                    }
                     productPrice = decimal.Round(productPrice, 2); //round product price to 2 decimal places
                     Console.WriteLine("Enter product quantity:");
-                    int productQuantity = int.Parse(Console.ReadLine());
+                    if (!int.TryParse(Console.ReadLine(), out int productQuantity))
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid product quantity.");
+                    }
                     products.Add(
                         new Product
                         {
@@ -57,9 +67,15 @@
                         Console.WriteLine($"{customer.CustomerId}. {customer.Name}");
                     }
                     Console.WriteLine("Enter customer ID:");
-                    int customerId = int.Parse(Console.ReadLine());
+                    if (!int.TryParse(Console.ReadLine(), out int customerId))
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid customer ID.");
+                    }
                     Console.WriteLine("Enter quantity:");
-                    int quantity = int.Parse(Console.ReadLine());
+                    if (!int.TryParse(Console.ReadLine(), out int quantity))
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid quantity.");
+                    }
                     while (true)
                     { //repeat until product ID input is empty or blank
                         foreach (var product in products)
@@ -72,7 +88,10 @@
                         { //if product ID input is empty or blank
                             break; //end the input process
                         }
-                        int productId = int.Parse(enteredProductId);
+                        if (!int.TryParse(enteredProductId, out int productId))
+                        {
+                            Console.WriteLine("Invalid input. Please enter a valid product ID.");
+                        }
                         var selectedProduct = products.FirstOrDefault(p =>
                             p.ProductId == productId
                         ); //match product ID with product ID in product list
