@@ -56,6 +56,11 @@
                                 }
                             ); //add new product with entered values
                         }
+                        else
+                        {
+                            Console.WriteLine("Invalid input. Please enter a valid product name.");
+                            continue; //continue program without adding product
+                        }
                         break;
                     case 2: //add customer
                         Console.WriteLine("Enter customer name:");
@@ -70,6 +75,11 @@
                                     Orders = new List<Order>(),
                                 }
                             ); //add new customer with entered values
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input. Please enter a valid customer name.");
+                            continue; //continue program without adding customer
                         }
                         break;
                     case 3: //add order
