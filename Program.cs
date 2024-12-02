@@ -43,7 +43,7 @@
                             { //if product quantity is not a valid integer
                                 Console.WriteLine(
                                     "Invalid input. Please enter a valid product quantity."
-                                );
+                                ); //alert user for invalid input
                                 continue; //continue program without adding product
                             }
                             products.Add(
@@ -58,7 +58,7 @@
                         }
                         else
                         {
-                            Console.WriteLine("Invalid input. Please enter a valid product name.");
+                            Console.WriteLine("Invalid input. Please enter a valid product name."); //alert user for invalid input
                             continue; //continue program without adding product
                         }
                         break;
@@ -78,7 +78,7 @@
                         }
                         else
                         {
-                            Console.WriteLine("Invalid input. Please enter a valid customer name.");
+                            Console.WriteLine("Invalid input. Please enter a valid customer name."); //alert user for invalid input
                             continue; //continue program without adding customer
                         }
                         break;
@@ -91,13 +91,13 @@
                         Console.WriteLine("Enter customer ID:");
                         if (!int.TryParse(Console.ReadLine(), out int customerId))
                         { //if customer ID is not a valid integer
-                            Console.WriteLine("Invalid input. Please enter a valid customer ID.");
+                            Console.WriteLine("Invalid input. Please enter a valid customer ID."); //alert user for invalid input
                             continue; //continue program without adding order
                         }
                         Console.WriteLine("Enter quantity:");
                         if (!int.TryParse(Console.ReadLine(), out int quantity))
                         { //if quantity is not a valid integer
-                            Console.WriteLine("Invalid input. Please enter a valid quantity.");
+                            Console.WriteLine("Invalid input. Please enter a valid quantity."); //alert user for invalid input
                             continue; //continue program without adding order
                         }
                         while (true)
@@ -114,7 +114,7 @@
                             }
                             if (!int.TryParse(enteredProductId, out int productId))
                             { //if product ID is not a valid integer
-                                Console.WriteLine("Invalid input. Please enter a valid product ID.");
+                                Console.WriteLine("Invalid input. Please enter a valid product ID."); //alert user for invalid input
                                 continue; //continue program without adding order
                             }
                             var selectedProduct = products.FirstOrDefault(p =>
@@ -188,7 +188,7 @@
                         Console.WriteLine($"Total Price of All Orders: {totalAllOrdersPrice:N2}");
                         break;
                     default: //invalid option
-                        Console.WriteLine("Invalid option.");
+                        Console.WriteLine("Invalid option."); //alert user for invalid input option
                         return; //end program
                 }
             }
